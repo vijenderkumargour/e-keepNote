@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 
 
 const NoteState = (props) => {
-    const host = "http://localhost:5000"
+    //const host = "http://localhost:5000"
+    const host = "https://e-keep-note.vercel.app/"
     const notesInitial = [];
     const [notes, setNotes] = useState(notesInitial);
     //Fetch all notes from db
