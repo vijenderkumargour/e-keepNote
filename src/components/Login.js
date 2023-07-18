@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-const domain = 'https://e-keep-note.vercel.app/'
+const domain = 'https://e-keep-note.vercel.app'
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ email: "", password: "" });

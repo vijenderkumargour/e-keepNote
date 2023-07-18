@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+const domain = 'https://e-keep-note.vercel.app'
 const Signup = (props) => {
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
     const navigate = useNavigate();
@@ -9,7 +9,7 @@ const Signup = (props) => {
     const handleSubmit = async (e) => {
         const { name, email, password } = credentials;
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/createUser", {
+        const response = await fetch(`${domain}/api/auth/createUser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const Signup = (props) => {
                     <input type="password" className="form-control" name="password" onChange={onChange} id="password" required minLength="5" />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="cpassword" className="form-label">Coonfirm Password</label>
+                    <label htmlFor="cpassword" className="form-label">Confirm Password</label>
                     <input type="password" className="form-control" name="cpassword" onChange={onChange} id="cpassword" required minLength="5" />
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
