@@ -3,13 +3,13 @@ import React, { useState } from 'react'
 
 
 const NoteState = (props) => {
-    //const host = "http://localhost:5000"
-    const host = "https://e-keep-note.vercel.app/"
+    const host = "http://localhost:5000"
+    //const host = "https://e-keep-note.vercel.app/"
     const notesInitial = [];
     const [notes, setNotes] = useState(notesInitial);
     //Fetch all notes from db
     const fetchNotes = async () => {
-        const response = await fetch(`${host}/api/note/fetchallnotes`, {
+        const response = await fetch(`/api/note/fetchallnotes`, {
             method: 'get',
             headers: {
                 "content-type": "application/json",
@@ -22,7 +22,7 @@ const NoteState = (props) => {
 
     //Add a Note
     const addNote = async (title, description, tag) => {
-        const response = await fetch(`${host}/api/note/addnote`, {
+        const response = await fetch(`/api/note/addnote`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -35,7 +35,7 @@ const NoteState = (props) => {
     }
     //Updae a Note
     const editNote = async (id, title, description, tag) => {
-        const response = await fetch(`${host}/api/note/updatenote/${id}`, {
+        const response = await fetch(`/api/note/updatenote/${id}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json",
@@ -62,7 +62,7 @@ const NoteState = (props) => {
     }
     //Delete a Note
     const deleteNote = async (id) => {
-        const response = await fetch(`${host}/api/note/deletenote/${id}`, {
+        const response = await fetch(`/api/note/deletenote/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application-json",
